@@ -23,7 +23,7 @@ class SingleWeather extends StatelessWidget {
                               height: 150,
                             ),
                             Text(
-                              "Srinagar",
+                              "Mumbai",
                               style: TextStyle(
                                   fontSize: 35,
                                   fontWeight: FontWeight.bold,
@@ -33,7 +33,7 @@ class SingleWeather extends StatelessWidget {
                               height: 5,
                             ),
                             Text(
-                              "4:03 PM -- Friday, 24 Mar 2023",
+                              "12:56 PM -- Sat, 25 Mar 2023",
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
@@ -45,7 +45,7 @@ class SingleWeather extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "16\u2103",
+                              "30\u2103",
                               style: TextStyle(
                                   fontSize: 85,
                                   fontWeight: FontWeight.w300,
@@ -53,12 +53,12 @@ class SingleWeather extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                SvgPicture.asset("assets/moon.svg",width: 34,height: 34,color: Colors.white,),
+                                SvgPicture.asset("assets/sun.svg",width: 34,height: 34,color: Colors.white,),
                                 SizedBox(
                                   width: 10,
                                 ),
                                 Text(
-                                  "Night",
+                                  "Day",
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,

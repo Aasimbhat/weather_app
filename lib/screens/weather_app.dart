@@ -41,7 +41,7 @@ class WeatherApp extends StatelessWidget {
           child: Stack(
         children: [
           Image.asset(
-            "assets/night.jpg",
+            "assets/sunny.jpg",
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
@@ -98,7 +98,7 @@ class WeatherApp extends StatelessWidget {
           ),
           PageView.builder(
             itemCount: 5,
-            itemBuilder: (context,index)=>SingleWeather())
+            itemBuilder: (ctx,i)=>SingleWeather())
           
         ],
       )),
