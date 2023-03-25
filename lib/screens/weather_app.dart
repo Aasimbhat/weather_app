@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:weather_app/models/weather_locations.dart';
 import 'package:weather_app/widgets/single_weather.dart';
+import 'package:weather_app/widgets/slider_dot.dart';
 
 
 class WeatherApp extends StatelessWidget {
@@ -53,52 +55,19 @@ class WeatherApp extends StatelessWidget {
             margin: EdgeInsets.only(top: 140, left: 15),
             child: Row(
               children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  width: 12,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5)),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  width: 5,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.circular(5)),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  width: 5,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.circular(5)),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  width: 5,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.circular(5)),
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  width: 5,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.circular(5)),
-                ),
+             
+              for(int i =0; i<locationList.length;i++)
+              SliderDot(isActive: true)
+                
+             
+                
               ],
             ),
           ),
           PageView.builder(
-            itemCount: 5,
-            itemBuilder: (ctx,i)=>SingleWeather())
+            scrollDirection: Axis.horizontal,
+            itemCount: locationList.length,
+            itemBuilder: (ctx,i)=>SingleWeather(index: i,))
           
         ],
       )),
