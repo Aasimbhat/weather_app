@@ -2,14 +2,38 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:transformer_page_view/transformer_page_view.dart';
 import 'package:weather_app/models/weather_locations.dart';
+import 'package:weather_app/widgets/buildin_transformer.dart';
 import 'package:weather_app/widgets/single_weather.dart';
 import 'package:weather_app/widgets/slider_dot.dart';
 
 
-class WeatherApp extends StatelessWidget {
+class WeatherApp extends StatefulWidget {
   @override
+  State<WeatherApp> createState() => _WeatherAppState();
+}
+
+class _WeatherAppState extends State<WeatherApp> {
+  @override
+  int _currentPage=0;
+  late String bgImg;
+
+  _onPageChanged(int index){
+    setState(() {
+      _currentPage=index;
+    });
+  }
   Widget build(BuildContext context) {
+    if(locationList[_currentPage].weatherType=='Sunny'){
+      bgImg='assets/sunny.jpg';
+    }else if(locationList[_currentPage].weatherType=='Night'){
+      bgImg='assets/night.jpg';
+    }else if(locationList[_currentPage].weatherType=='Rain'){
+      bgImg='assets/rainy.jpg';
+    }else if(locationList[_currentPage].weatherType=='Cloudy'){
+      bgImg='assets/cloudy.jpeg';
+    }
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -30,7 +54,7 @@ class WeatherApp extends StatelessWidget {
             child: GestureDetector(
               onTap: () {},
               child: SvgPicture.asset(
-                "assets/menu.svg",
+                bgImg,
                 height: 30,
                 width: 30,
                 color: Colors.white,
@@ -43,7 +67,7 @@ class WeatherApp extends StatelessWidget {
           child: Stack(
         children: [
           Image.asset(
-            "assets/sunny.jpg",
+            bgImg,
             fit: BoxFit.cover,
             height: double.infinity,
             width: double.infinity,
@@ -57,15 +81,21 @@ class WeatherApp extends StatelessWidget {
               children: [
              
               for(int i =0; i<locationList.length;i++)
+
+              if(i== _currentPage)
               SliderDot(isActive: true)
-                
+              else
+                  SliderDot(isActive: false)
              
                 
               ],
             ),
           ),
-          PageView.builder(
+          TransformerPageView(
+            onPageChanged: _onPageChanged,
             scrollDirection: Axis.horizontal,
+            transformer:ScaleAndFadeTransformer() ,
+            viewportFraction: 0.8,
             itemCount: locationList.length,
             itemBuilder: (ctx,i)=>SingleWeather(index: i,))
           

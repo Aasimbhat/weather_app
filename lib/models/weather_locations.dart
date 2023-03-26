@@ -25,10 +25,10 @@ class WeatherLocation {
 final locationList = [
   WeatherLocation(
     city: 'Srinagar',
-    dateTime: '07:50 PM — Friday, 24 Mar 2023',
+    dateTime: '02:50 AM — Friday, 24 Mar 2023',
     temparature: '24\u2103',
     weatherType: 'Night',
-    iconUrl: 'assets/moon.svg',
+    iconUrl: 'assets/sun.svg',
     wind: 10,
     rain: 2,
     humidity: 10,
@@ -55,10 +55,10 @@ final locationList = [
   ),
   WeatherLocation(
     city: 'Kolkata',
-    dateTime: '01:20 AM — Friday, 24 Mar 2023',
-    temparature: '10\u2103',
-    weatherType: 'Rainy',
-    iconUrl: 'assets/rain.svg',
+    dateTime: '01:20 PM — Friday, 24 Mar 2023',
+    temparature: '23\u2103',
+    weatherType: 'Sunny',
+    iconUrl: 'assets/sun.svg',
     wind: 20,
     rain: 70,
     humidity: 91,
