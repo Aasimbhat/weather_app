@@ -2,9 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:transformer_page_view/transformer_page_view.dart';
 import 'package:weather_app/models/weather_locations.dart';
-import 'package:weather_app/widgets/buildin_transformer.dart';
 import 'package:weather_app/widgets/single_weather.dart';
 import 'package:weather_app/widgets/slider_dot.dart';
 
@@ -91,11 +89,10 @@ class _WeatherAppState extends State<WeatherApp> {
               ],
             ),
           ),
-          TransformerPageView(
+          PageView.builder(
             onPageChanged: _onPageChanged,
             scrollDirection: Axis.horizontal,
-            transformer:ScaleAndFadeTransformer() ,
-            viewportFraction: 0.8,
+            
             itemCount: locationList.length,
             itemBuilder: (ctx,i)=>SingleWeather(index: i,))
           
